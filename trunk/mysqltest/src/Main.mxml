@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="initCollections();" >
+	
+	    <mx:Script>
+        <![CDATA[
+ 
+            import mx.events.MenuEvent;
+            import mx.controls.Alert;
+            import mx.collections.*;
+			import mx.controls.List;
+
+			import mysql.MySQL;
+			
+			public var  menuBarCollection:XMLListCollection;
+			
+            // Event handler to initialize the MenuBar control.
+            private function initCollections():void 
+			{
+
+			        				
+				try
+				{
+					var p:MySQL = new MySQL();
+					
+					try
+					{
+						 p.connect( { "host":"127.0.0.1", "port":3306, "user":"root","pass":"root" } );
+						 p.selectdb( "ritmix3" );
+						
+						 
+						 p.query( "SET NAMES \"utf8\"" );
+
+						 var ret:Array = p.fetch( "SELECT * FROM users" );
+						 
+						 trace( ret );
+					}
+					catch(e:*)
+					{
+						trace( 'gopo' );
+					}
+				}
+				catch(e:*)
+				{
+					trace( 'gopo' );
+				}
+				
+				var data:Array = [];
+				
+				for each( var o:Object in ret )
+				{
+					data.push( o.login );
+				}
+				 
+				 list1.dataProvider = data;
+				
+				
+		}
+		
+         ]]>
+    </mx:Script>  
+	
+	<mx:Panel title="MenuBar Control Example" height="75%" width="75%" 
+        paddingTop="10" paddingLeft="10">
+ 
+        <mx:Label width="100%" color="blue"
+           text="MySQL connection test."/>
+		   
+		<mx:List id="list1" width="80%" />
+ 
+       
+ 
+    </mx:Panel>
+
+
+	
+</mx:Application>

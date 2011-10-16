@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding ="utf-8"?>
+<swc xmlns="http://www.adobe.com/flash/swccatalog/9">
+  <versions>
+    <swc version="1.2" />
+    <flex version="3.3.0" build="4852" />
+  </versions>
+  <features>
+    <feature-script-deps />
+    <feature-files />
+  </features>
+  <libraries>
+    <library path="library.swf">
+      <script name="mysql/MySQL" mod="1318781887523" signatureChecksum="2041416421" >
+        <def id="mysql:MySQL" /> 
+        <dep id="flash.external:ExtensionContext" type="e" /> 
+        <dep id="flash.external:ExtensionContext" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <digests>
+        <digest type="SHA-256" signed="false" value="9a629493a34cccb65e37c724f07981d07a5e0c02b6f4cd92d4c75242aa0cf076"   />
+      </digests>
+    </library>
+  </libraries>
+  <files>
+  </files>
+</swc>

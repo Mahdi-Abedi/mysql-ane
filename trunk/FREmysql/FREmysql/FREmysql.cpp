@@ -231,6 +231,8 @@ static FREObject _result( MYSQL_RES *r )
 		
 		FRESetArrayElementAt( arr, j, obj );
 	}
+
+	mysql_free_result(r);
 	
 	
 
@@ -263,6 +265,7 @@ FREObject _fetch(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[]
 		else
 		{
 			//error(MYSQLDATA(o),req);
+			return 0;
 
 		}
 	}
